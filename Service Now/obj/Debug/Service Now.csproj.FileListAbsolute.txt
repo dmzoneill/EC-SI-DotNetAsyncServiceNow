@@ -1,0 +1,18 @@
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\bin\Debug\Service Now.exe.config
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\bin\Debug\Service Now.exe
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\bin\Debug\Service Now.pdb
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\bin\Debug\Hardcodet.Wpf.TaskbarNotification.dll
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\bin\Debug\Hardcodet.Wpf.TaskbarNotification.pdb
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\bin\Debug\Hardcodet.Wpf.TaskbarNotification.xml
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\Form.baml
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\MainWindow.baml
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\Form.g.cs
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\MainWindow.g.cs
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\App.g.cs
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\Service Now_MarkupCompile.cache
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\Service Now.g.resources
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\Service_Now.Properties.Resources.resources
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\Service Now.csproj.GenerateResource.Cache
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\Service Now.exe
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\Service Now.pdb
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\Service Now\obj\Debug\Service Now.csprojResolveAssemblyReference.cache

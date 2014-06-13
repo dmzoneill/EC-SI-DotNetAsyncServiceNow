@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{24F6919A-5FB7-41E2-8FAF-878E4C35391C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Service_Now</RootNamespace>
+    <AssemblyName>Service Now</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification">
+      <HintPath>..\..\wpf-notifyicon\NotifyIconWpf\bin\Release\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Form.xaml.cs">
+      <DependentUpon>Form.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Intel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SNL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16px-Warning.gif" />
+    <Resource Include="Images\accessories.gif" />
+    <Resource Include="Images\account.gif" />
+    <Resource Include="Images\actions.gif" />
+    <Resource Include="Images\add_ons.gif" />
+    <Resource Include="Images\administration.gif" />
+    <Resource Include="Images\agent.gif" />
+    <Resource Include="Images\aim.gif" />
+    <Resource Include="Images\alarms.gif" />
+    <Resource Include="Images\alert.gif" />
+    <Resource Include="Images\all.gif" />
+    <Resource Include="Images\app.gif" />
+    <Resource Include="Images\applications.gif" />
+    <Resource Include="Images\application_categories.gif" />
+    <Resource Include="Images\approvals.gif" />
+    <Resource Include="Images\asset_checked_out.gif" />
+    <Resource Include="Images\asset_portfolio.gif" />
+    <Resource Include="Images\assigned_tome.gif" />
+    <Resource Include="Images\assistance.gif" />
+    <Resource Include="Images\attachment.gif" />
+    <Resource Include="Images\attachment2.gif" />
+    <Resource Include="Images\attribute.gif" />
+    <Resource Include="Images\attributes.gif" />
+    <Resource Include="Images\authentication.gif" />
+    <Resource Include="Images\base.gif" />
+    <Resource Include="Images\baseline.gif" />
+    <Resource Include="Images\base_items.gif" />
+    <Resource Include="Images\bea.gif" />
+    <Resource Include="Images\budgets.gif" />
+    <Resource Include="Images\bullet.gif" />
+    <Resource Include="Images\bundles.gif" />
+    <Resource Include="Images\business_rules.gif" />
+    <Resource Include="Images\business_services.gif" />
+    <Resource Include="Images\business_services_crit.gif" />
+    <Resource Include="Images\cache.gif" />
+    <Resource Include="Images\cache_db.gif" />
+    <Resource Include="Images\cache_flush.gif" />
+    <Resource Include="Images\calendar.gif" />
+    <Resource Include="Images\catalog_item.gif" />
+    <Resource Include="Images\categories.gif" />
+    <Resource Include="Images\cell_phone.gif" />
+    <Resource Include="Images\certificates.gif" />
+    <Resource Include="Images\changes.gif" />
+    <Resource Include="Images\changes_scheduled.gif" />
+    <Resource Include="Images\change_current.gif" />
+    <Resource Include="Images\change_past.gif" />
+    <Resource Include="Images\change_planned.gif" />
+    <Resource Include="Images\chart_color.gif" />
+    <Resource Include="Images\chart_definiton.gif" />
+    <Resource Include="Images\choicelist.gif" />
+    <Resource Include="Images\choice_lists.gif" />
+    <Resource Include="Images\classes.gif" />
+    <Resource Include="Images\clear.gif" />
+    <Resource Include="Images\clipboard.gif" />
+    <Resource Include="Images\closed.gif" />
+    <Resource Include="Images\clusters.gif" />
+    <Resource Include="Images\cmbd_ci.gif" />
+    <Resource Include="Images\cmbd_ci_computer.gif" />
+    <Resource Include="Images\cmdb_ci_database.gif" />
+    <Resource Include="Images\cmdb_ci_netgear.gif" />
+    <Resource Include="Images\cmdb_ci_server.gif" />
+    <Resource Include="Images\cmdb_ci_server_application.gif" />
+    <Resource Include="Images\cmdb_ci_service.gif" />
+    <Resource Include="Images\cmdb_ci_storage.gif" />
+    <Resource Include="Images\cmdb_ci_web_application.gif" />
+    <Resource Include="Images\code.gif" />
+    <Resource Include="Images\code_binary.gif" />
+    <Resource Include="Images\code_function.gif" />
+    <Resource Include="Images\collapseall.gif" />
+    <Resource Include="Images\comment_16.gif" />
+    <Resource Include="Images\companies.gif" />
+    <Resource Include="Images\computer.gif" />
+    <Resource Include="Images\comp_room.gif" />
+    <Resource Include="Images\contracts.gif" />
+    <Resource Include="Images\contract_folder.gif" />
+    <Resource Include="Images\contract_item.gif" />
+    <Resource Include="Images\css.gif" />
+    <Resource Include="Images\cube16.gif" />
+    <Resource Include="Images\cvs.gif" />
+    <Resource Include="Images\dashboard.gif" />
+    <Resource Include="Images\database.gif" />
+    <Resource Include="Images\database_ibm.gif" />
+    <Resource Include="Images\database_mssql.gif" />
+    <Resource Include="Images\database_mysql.gif" />
+    <Resource Include="Images\database_oracle.gif" />
+    <Resource Include="Images\data_center.gif" />
+    <Resource Include="Images\data_source.gif" />
+    <Resource Include="Images\dayview.gif" />
+    <Resource Include="Images\debug.gif" />
+    <Resource Include="Images\debug_js.gif" />
+    <Resource Include="Images\delagates.gif" />
+    <Resource Include="Images\deleted.gif" />
+    <Resource Include="Images\departments.gif" />
+    <Resource Include="Images\device.gif" />
+    <Resource Include="Images\diagnostics.gif" />
+    <Resource Include="Images\dictionary.gif" />
+    <Resource Include="Images\directory.gif" />
+    <Resource Include="Images\discovery_available.gif" />
+    <Resource Include="Images\discovery_bs_component.gif" />
+    <Resource Include="Images\discovery_class.gif" />
+    <Resource Include="Images\discovery_probe.gif" />
+    <Resource Include="Images\discovery_sensor.gif" />
+    <Resource Include="Images\disputes.gif" />
+    <Resource Include="Images\dns.gif" />
+    <Resource Include="Images\dsl.gif" />
+    <Resource Include="Images\edit.gif" />
+    <Resource Include="Images\email.gif" />
+    <Resource Include="Images\email_actions.gif" />
+    <Resource Include="Images\email_open.gif" />
+    <Resource Include="Images\empty.gif" />
+    <Resource Include="Images\error.gif" />
+    <Resource Include="Images\event.gif" />
+    <Resource Include="Images\exe_plans.gif" />
+    <Resource Include="Images\expandall.gif" />
+    <Resource Include="Images\expense_line.gif" />
+    <Resource Include="Images\features.gif" />
+    <Resource Include="Images\feedback.gif" />
+    <Resource Include="Images\file_upload.gif" />
+    <Resource Include="Images\filter.gif" />
+    <Resource Include="Images\filters.gif" />
+    <Resource Include="Images\filter_hide.gif" />
+    <Resource Include="Images\filter_reveal.gif" />
+    <Resource Include="Images\flatlayout.gif" />
+    <Resource Include="Images\folder%281%29.gif" />
+    <Resource Include="Images\folder.gif" />
+    <Resource Include="Images\formatter.gif" />
+    <Resource Include="Images\forms.gif" />
+    <Resource Include="Images\ftp.gif" />
+    <Resource Include="Images\gauges.gif" />
+    <Resource Include="Images\group.gif" />
+    <Resource Include="Images\hardware.gif" />
+    <Resource Include="Images\help.gif" />
+    <Resource Include="Images\help_desk.gif" />
+    <Resource Include="Images\hierarchical_layout.gif" />
+    <Resource Include="Images\history.gif" />
+    <Resource Include="Images\home.gif" />
+    <Resource Include="Images\homepage.gif" />
+    <Resource Include="Images\home_16.gif" />
+    <Resource Include="Images\hover_icon.gif" />
+    <Resource Include="Images\hover_icon_round.gif" />
+    <Resource Include="Images\ibm.gif" />
+    <Resource Include="Images\ico_home.gif" />
+    <Resource Include="Images\import.gif" />
+    <Resource Include="Images\import_cleanup.gif" />
+    <Resource Include="Images\import_error.gif" />
+    <Resource Include="Images\import_scheduled.gif" />
+    <Resource Include="Images\import_sets.gif" />
+    <Resource Include="Images\import_tables.gif" />
+    <Resource Include="Images\inbox.gif" />
+    <Resource Include="Images\incidents.gif" />
+    <Resource Include="Images\incidents_critical.gif" />
+    <Resource Include="Images\info.gif" />
+    <Resource Include="Images\instance.gif" />
+    <Resource Include="Images\instance_id.gif" />
+    <Resource Include="Images\invoice.gif" />
+    <Resource Include="Images\in_stock.gif" />
+    <Resource Include="Images\items.gif" />
+    <Resource Include="Images\jclass.gif" />
+    <Resource Include="Images\jobs.gif" />
+    <Resource Include="Images\jslint.gif" />
+    <Resource Include="Images\junk.gif" />
+    <Resource Include="Images\knowledge.gif" />
+    <Resource Include="Images\knowledge_properties.gif" />
+    <Resource Include="Images\knowledge_view.gif" />
+    <Resource Include="Images\known_error.gif" />
+    <Resource Include="Images\label.gif" />
+    <Resource Include="Images\labels.gif" />
+    <Resource Include="Images\label_rules.gif" />
+    <Resource Include="Images\lang.gif" />
+    <Resource Include="Images\language_files.gif" />
+    <Resource Include="Images\layout.gif" />
+    <Resource Include="Images\leases.gif" />
+    <Resource Include="Images\license.gif" />
+    <Resource Include="Images\list.gif" />
+    <Resource Include="Images\lists.gif" />
+    <Resource Include="Images\list_active.gif" />
+    <Resource Include="Images\list_closed.gif" />
+    <Resource Include="Images\list_error.gif" />
+    <Resource Include="Images\list_search.gif" />
+    <Resource Include="Images\location.gif" />
+    <Resource Include="Images\locations.gif" />
+    <Resource Include="Images\locked.gif" />
+    <Resource Include="Images\log.gif" />
+    <Resource Include="Images\logged_in.gif" />
+    <Resource Include="Images\log_preferences.gif" />
+    <Resource Include="Images\macros.gif" />
+    <Resource Include="Images\maint.gif" />
+    <Resource Include="Images\many2many.gif" />
+    <Resource Include="Images\mapping.gif" />
+    <Resource Include="Images\maps_saved.gif" />
+    <Resource Include="Images\map_actions.gif" />
+    <Resource Include="Images\map_critical.gif" />
+    <Resource Include="Images\map_filters.gif" />
+    <Resource Include="Images\map_google.gif" />
+    <Resource Include="Images\map_views.gif" />
+    <Resource Include="Images\math.gif" />
+    <Resource Include="Images\menu_switch.gif" />
+    <Resource Include="Images\messages.gif" />
+    <Resource Include="Images\metrics.gif" />
+    <Resource Include="Images\mid.gif" />
+    <Resource Include="Images\modules.gif" />
+    <Resource Include="Images\monitor.gif" />
+    <Resource Include="Images\monitors.gif" />
+    <Resource Include="Images\monthview.gif" />
+    <Resource Include="Images\msword.gif" />
+    <Resource Include="Images\network.gif" />
+    <Resource Include="Images\network_adapters.gif" />
+    <Resource Include="Images\network_gear.gif" />
+    <Resource Include="Images\network_ip.gif" />
+    <Resource Include="Images\network_relationships.gif" />
+    <Resource Include="Images\new.gif" />
+    <Resource Include="Images\news.gif" />
+    <Resource Include="Images\nolines_plus.gif" />
+    <Resource Include="Images\notification_report.gif" />
+    <Resource Include="Images\number.gif" />
+    <Resource Include="Images\objects.gif" />
+    <Resource Include="Images\open.gif" />
+    <Resource Include="Images\open_unassigned.gif" />
+    <Resource Include="Images\order_guide.gif" />
+    <Resource Include="Images\org_chart.gif" />
+    <Resource Include="Images\outage.gif" />
+    <Resource Include="Images\outage_current.gif" />
+    <Resource Include="Images\outage_past.gif" />
+    <Resource Include="Images\outage_planned.gif" />
+    <Resource Include="Images\outbox.gif" />
+    <Resource Include="Images\overview.gif" />
+    <Resource Include="Images\package.gif" />
+    <Resource Include="Images\page.gif" />
+    <Resource Include="Images\pages.gif" />
+    <Resource Include="Images\panel.gif" />
+    <Resource Include="Images\partition.gif" />
+    <Resource Include="Images\pending.gif" />
+    <Resource Include="Images\peripherals.gif" />
+    <Resource Include="Images\phase.gif" />
+    <Resource Include="Images\phone.gif" />
+    <Resource Include="Images\piechrt.gif" />
+    <Resource Include="Images\plugin.gif" />
+    <Resource Include="Images\policy.gif" />
+    <Resource Include="Images\popup.gif" />
+    <Resource Include="Images\portfolio.gif" />
+    <Resource Include="Images\preferences.gif" />
+    <Resource Include="Images\print.gif" />
+    <Resource Include="Images\printer.gif" />
+    <Resource Include="Images\problem.gif" />
+    <Resource Include="Images\product.gif" />
+    <Resource Include="Images\progress.gif" />
+    <Resource Include="Images\project.gif" />
+    <Resource Include="Images\properties.gif" />
+    <Resource Include="Images\public_page.gif" />
+    <Resource Include="Images\purchase_orders.gif" />
+    <Resource Include="Images\queue.gif" />
+    <Resource Include="Images\rack.gif" />
+    <Resource Include="Images\received.gif" />
+    <Resource Include="Images\record_producer.gif" />
+    <Resource Include="Images\refresh.gif" />
+    <Resource Include="Images\registry.gif" />
+    <Resource Include="Images\relationships.gif" />
+    <Resource Include="Images\release.gif" />
+    <Resource Include="Images\releases.gif" />
+    <Resource Include="Images\remove.gif" />
+    <Resource Include="Images\reports.gif" />
+    <Resource Include="Images\request.gif" />
+    <Resource Include="Images\request_pass.gif" />
+    <Resource Include="Images\reset.gif" />
+    <Resource Include="Images\resources.gif" />
+    <Resource Include="Images\role.gif" />
+    <Resource Include="Images\roster_new.gif" />
+    <Resource Include="Images\roster_type.gif" />
+    <Resource Include="Images\rotation_report.gif" />
+    <Resource Include="Images\rules.gif" />
+    <Resource Include="Images\run.gif" />
+    <Resource Include="Images\run_verify.gif" />
+    <Resource Include="Images\save.gif" />
+    <Resource Include="Images\schedule.gif" />
+    <Resource Include="Images\scheduled.gif" />
+    <Resource Include="Images\scheduled_jobs.gif" />
+    <Resource Include="Images\script.gif" />
+    <Resource Include="Images\scripts.gif" />
+    <Resource Include="Images\scripts_validation.gif" />
+    <Resource Include="Images\script_includes.gif" />
+    <Resource Include="Images\search.gif" />
+    <Resource Include="Images\security.gif" />
+    <Resource Include="Images\security_role.gif" />
+    <Resource Include="Images\send.gif" />
+    <Resource Include="Images\sent.gif" />
+    <Resource Include="Images\server.gif" />
+    <Resource Include="Images\server_app.gif" />
+    <Resource Include="Images\server_bea.gif" />
+    <Resource Include="Images\server_db.gif" />
+    <Resource Include="Images\server_directory.gif" />
+    <Resource Include="Images\server_hp.gif" />
+    <Resource Include="Images\server_ibm.gif" />
+    <Resource Include="Images\server_java.gif" />
+    <Resource Include="Images\server_linux.gif" />
+    <Resource Include="Images\server_monitor.gif" />
+    <Resource Include="Images\server_mssql.gif" />
+    <Resource Include="Images\server_mysql.gif" />
+    <Resource Include="Images\server_oracle.gif" />
+    <Resource Include="Images\server_outage.gif" />
+    <Resource Include="Images\server_stop.gif" />
+    <Resource Include="Images\server_tomcat.gif" />
+    <Resource Include="Images\server_web.gif" />
+    <Resource Include="Images\server_win.gif" />
+    <Resource Include="Images\service.gif" />
+    <Resource Include="Images\service_catalog.gif" />
+    <Resource Include="Images\shopping_cart.gif" />
+    <Resource Include="Images\single_user.gif" />
+    <Resource Include="Images\skins.gif" />
+    <Resource Include="Images\skipped.gif" />
+    <Resource Include="Images\sla.gif" />
+    <Resource Include="Images\software.gif" />
+    <Resource Include="Images\software_bundle.gif" />
+    <Resource Include="Images\software_library.gif" />
+    <Resource Include="Images\software_licenses.gif" />
+    <Resource Include="Images\software_usage.gif" />
+    <Resource Include="Images\start.gif" />
+    <Resource Include="Images\statistics.gif" />
+    <Resource Include="Images\stats.gif" />
+    <Resource Include="Images\status.gif" />
+    <Resource Include="Images\stop.gif" />
+    <Resource Include="Images\storage.gif" />
+    <Resource Include="Images\styles.gif" />
+    <Resource Include="Images\styles_fields.gif" />
+    <Resource Include="Images\subnet.gif" />
+    <Resource Include="Images\survey.gif" />
+    <Resource Include="Images\survey_instance.gif" />
+    <Resource Include="Images\survey_master.gif" />
+    <Resource Include="Images\survey_question.gif" />
+    <Resource Include="Images\survey_response.gif" />
+    <Resource Include="Images\system.gif" />
+    <Resource Include="Images\system_upgrades.gif" />
+    <Resource Include="Images\table.gif" />
+    <Resource Include="Images\tablecols.gif" />
+    <Resource Include="Images\tables.gif" />
+    <Resource Include="Images\tables_columns.gif" />
+    <Resource Include="Images\tag.gif" />
+    <Resource Include="Images\task.gif" />
+    <Resource Include="Images\tasks.gif" />
+    <Resource Include="Images\template.gif" />
+    <Resource Include="Images\templates.gif" />
+    <Resource Include="Images\threads.gif" />
+    <Resource Include="Images\time.gif" />
+    <Resource Include="Images\tomcat.gif" />
+    <Resource Include="Images\tomcat_logo.gif" />
+    <Resource Include="Images\transactions.gif" />
+    <Resource Include="Images\transactions_active.gif" />
+    <Resource Include="Images\transform_map.gif" />
+    <Resource Include="Images\transform_run.gif" />
+    <Resource Include="Images\trend.gif" />
+    <Resource Include="Images\ui_actions.gif" />
+    <Resource Include="Images\unlocked.gif" />
+    <Resource Include="Images\update_local.gif" />
+    <Resource Include="Images\update_merge.gif" />
+    <Resource Include="Images\update_source.gif" />
+    <Resource Include="Images\update_sync.gif" />
+    <Resource Include="Images\user.gif" />
+    <Resource Include="Images\users.gif" />
+    <Resource Include="Images\user_delegate.gif" />
+    <Resource Include="Images\user_groups.gif" />
+    <Resource Include="Images\user_obj.gif" />
+    <Resource Include="Images\user_profile.gif" />
+    <Resource Include="Images\value.gif" />
+    <Resource Include="Images\variable.gif" />
+    <Resource Include="Images\variable_sets.gif" />
+    <Resource Include="Images\vendors.gif" />
+    <Resource Include="Images\verify.gif" />
+    <Resource Include="Images\view.gif" />
+    <Resource Include="Images\views.gif" />
+    <Resource Include="Images\virtual_machine.gif" />
+    <Resource Include="Images\vpn.gif" />
+    <Resource Include="Images\warning.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close.png" />
+    <Resource Include="Images\minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\power-icon-100.png" />
+    <Resource Include="Images\power-icon-200.png" />
+    <Resource Include="Images\power-icon-300.png" />
+    <Resource Include="Images\power-icon-400.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

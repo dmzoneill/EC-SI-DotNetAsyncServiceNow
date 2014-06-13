@@ -1,0 +1,12 @@
+﻿<Window x:Class="IntelServiceNowOracle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" Loaded="WindowLoaded1" Closing="WindowClosing1">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="215*"/>
+            <ColumnDefinition Width="302*"/>
+        </Grid.ColumnDefinitions>
+
+    </Grid>
+</Window>

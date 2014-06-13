@@ -1,0 +1,5 @@
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNow\bin\Debug\IntelServiceNow.dll
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNow\bin\Debug\IntelServiceNow.pdb
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNow\obj\Debug\IntelServiceNow.dll
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNow\obj\Debug\IntelServiceNow.pdb
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNow\obj\Debug\IntelServiceNow.csprojResolveAssemblyReference.cache

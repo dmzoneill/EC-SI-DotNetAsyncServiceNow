@@ -1,0 +1,15 @@
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\bin\Debug\IntelServiceNowOracle.exe.config
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\bin\Debug\IntelServiceNowOracle.exe
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\bin\Debug\IntelServiceNowOracle.pdb
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\bin\Debug\IntelServiceNow.dll
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\bin\Debug\IntelServiceNow.pdb
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\obj\Debug\IntelServiceNowOracle.csprojResolveAssemblyReference.cache
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\obj\Debug\MainWindow.baml
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\obj\Debug\MainWindow.g.cs
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\obj\Debug\App.g.cs
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\obj\Debug\IntelServiceNowOracle_MarkupCompile.cache
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\obj\Debug\IntelServiceNowOracle.g.resources
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\obj\Debug\IntelServiceNowOracle.Properties.Resources.resources
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\obj\Debug\IntelServiceNowOracle.csproj.GenerateResource.Cache
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\obj\Debug\IntelServiceNowOracle.exe
+C:\Users\dmoneil2\documents\visual studio 2012\Projects\IntelServiceNow\IntelServiceNowOracle\obj\Debug\IntelServiceNowOracle.pdb
