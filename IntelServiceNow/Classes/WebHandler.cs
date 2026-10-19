@@ -51,66 +51,66 @@ namespace IntelServiceNow.Classes
             private set;
         }
 
-        public int SubmitIncident( IItem snincident )
+        public int SubmitIncident(IItem snincident)
         {
             this.SoapUrl = "https://e2esm-int.intel.com/IncidentManagement_v1.do?SOAP";
-            return this.MakeRequest( snincident );
+            return this.MakeRequest(snincident);
         }
 
-        public int QueryIncident( string incidentno )
+        public int QueryIncident(string incidentno)
         {
             throw new NotImplementedException();
         }
 
-        public int QueryAssignedIncidents( IUser assignee )
+        public int QueryAssignedIncidents(IUser assignee)
         {
             this.SoapUrl = "https://e2esm.intel.com/incident_list.do?CSV&sysparm_query=active=true^assigned_to=javascript:getMyAssignments()^incident_state!=6^EQ&active=true";
-            
+
             return this.MakeRequest();
         }
 
-        public int UpdateIncident( string incidentno , string statusupdate )
+        public int UpdateIncident(string incidentno, string statusupdate)
         {
             throw new NotImplementedException();
         }
 
-        public int AssignIncident( string incidentno , IUser user )
+        public int AssignIncident(string incidentno, IUser user)
         {
             throw new NotImplementedException();
         }
 
-        public int ResolveIncident( string incidentno , string resolution )
+        public int ResolveIncident(string incidentno, string resolution)
         {
             throw new NotImplementedException();
         }
 
-        public int EscalateIncident( string incidentno )
+        public int EscalateIncident(string incidentno)
         {
             throw new NotImplementedException();
         }
 
-        public int SubmitRequest( IItem snrequest )
+        public int SubmitRequest(IItem snrequest)
         {
             this.SoapUrl = "https://e2esm-int.intel.com/RequestFulfillment_v1.do?SOAP";
-            return this.MakeRequest( snrequest );
+            return this.MakeRequest(snrequest);
         }
 
-        public int QueryRequest( string requestno )
+        public int QueryRequest(string requestno)
         {
             throw new NotImplementedException();
         }
 
-        public int UpdateRequest( string requestno , string statusupdate )
+        public int UpdateRequest(string requestno, string statusupdate)
         {
             throw new NotImplementedException();
         }
 
-        public int ResolveRequest( string requestno , string resolution )
+        public int ResolveRequest(string requestno, string resolution)
         {
             throw new NotImplementedException();
         }
 
-        public int CancelRequest( string requestno )
+        public int CancelRequest(string requestno)
         {
             throw new NotImplementedException();
         }
@@ -153,44 +153,54 @@ namespace IntelServiceNow.Classes
 
         #endregion
 
-        private int MakeRequest( IItem snrequest )
+        private HttpWebRequest CreateAuthenticatedRequest()
+        {
+            var webRequest = (HttpWebRequest)WebRequest.Create(this.SoapUrl);
+            webRequest.CookieContainer = _cookieContainer;
+
+            if (_cookieContainer.Count == 0)
+            {
+                if (string.IsNullOrEmpty(this.Username) || string.IsNullOrEmpty(this.Password))
+                {
+                    _cookieContainer = new CookieContainer();
+                    this.OnWebLoginRequired(this);
+                    return null;
+                }
+
+                string authInfo = this.Username + ":" + this.Password;
+                authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
+                webRequest.Headers["Authorization"] = "Basic " + authInfo;
+            }
+
+            webRequest.PreAuthenticate = true;
+            return webRequest;
+        }
+
+        private int MakeRequest(IItem snrequest)
         {
             try
             {
                 this.Payload = snrequest;
-
-                var webRequest = ( HttpWebRequest ) WebRequest.Create( this.SoapUrl );
-                webRequest.CookieContainer = _cookieContainer;
-
-                if( _cookieContainer.Count == 0 )
+                HttpWebRequest webRequest = this.CreateAuthenticatedRequest();
+                if (webRequest == null)
                 {
-                    if( string.IsNullOrEmpty( this.Username ) || string.IsNullOrEmpty( this.Password ) )
-                    {
-                        _cookieContainer = new CookieContainer();
-                        this.OnWebLoginRequired( this );
-                        return this.Id;
-                    }
-
-                    string authInfo = this.Username + ":" + this.Password;
-                    authInfo = Convert.ToBase64String( Encoding.Default.GetBytes( authInfo ) );
-                    webRequest.Headers[ "Authorization" ] = "Basic " + authInfo;
+                    return this.Id;
                 }
 
-                webRequest.PreAuthenticate = true;
-                webRequest.Headers.Add( @"SOAP:Action" );
+                webRequest.Headers.Add(@"SOAP:Action");
                 webRequest.ContentType = "text/xml;charset=\"utf-8\"";
                 webRequest.Accept = "text/xml";
                 webRequest.Method = "POST";
 
                 Stream stream = webRequest.GetRequestStream();
-                this.Payload.XmlDoc.Save( stream );
+                this.Payload.XmlDoc.Save(stream);
 
-                this.DoWebRequest( webRequest , this.ReadReponse );
+                this.DoWebRequest(webRequest, this.ReadReponse);
             }
-            catch( Exception ex )
+            catch (Exception ex)
             {
                 this.Error = ex;
-                this.OnWebErrorOccurred( this );
+                this.OnWebErrorOccurred(this);
             }
 
             return this.Id;
@@ -200,32 +210,19 @@ namespace IntelServiceNow.Classes
         {
             try
             {
-                var webRequest = ( HttpWebRequest ) WebRequest.Create( this.SoapUrl );
-                webRequest.CookieContainer = _cookieContainer;
-                
-                if( _cookieContainer.Count == 0 )
+                HttpWebRequest webRequest = this.CreateAuthenticatedRequest();
+                if (webRequest == null)
                 {
-                    if( string.IsNullOrEmpty( this.Username ) || string.IsNullOrEmpty( this.Password ) )
-                    {
-                        _cookieContainer = new CookieContainer();
-                        this.OnWebLoginRequired( this );
-                        return this.Id;
-                    }
-
-                    string authInfo = this.Username + ":" + this.Password;
-                    authInfo = Convert.ToBase64String( Encoding.Default.GetBytes( authInfo ) );
-                    webRequest.Headers[ "Authorization" ] = "Basic " + authInfo;
+                    return this.Id;
                 }
 
-                webRequest.PreAuthenticate = true;
                 webRequest.Method = "GET";
-                
-                this.DoWebRequest( webRequest , this.ReadReponse );
+                this.DoWebRequest(webRequest, this.ReadReponse);
             }
-            catch( Exception ex )
+            catch (Exception ex)
             {
                 this.Error = ex;
-                this.OnWebErrorOccurred( this );
+                this.OnWebErrorOccurred(this);
             }
 
             return this.Id;
@@ -233,100 +230,100 @@ namespace IntelServiceNow.Classes
 
         public static void Init()
         {
-            _cookieContainer = ReadCookiesFromDisk( "ServiceNowCookies" );
+            _cookieContainer = ReadCookiesFromDisk("ServiceNowCookies");
         }
 
         public static void DeInit()
         {
-            WriteCookiesToDisk( "ServiceNowCookies" , _cookieContainer );
+            WriteCookiesToDisk("ServiceNowCookies", _cookieContainer);
         }
 
-        private static void WriteCookiesToDisk( string file , CookieContainer cookieJar )
+        private static void WriteCookiesToDisk(string file, CookieContainer cookieJar)
         {
-            using( Stream stream = File.Create( file ) )
+            using (Stream stream = File.Create(file))
             {
                 try
                 {
                     var formatter = new BinaryFormatter();
-                    formatter.Serialize( stream , cookieJar );
+                    formatter.Serialize(stream, cookieJar);
                 }
-                catch( Exception ex )
+                catch (Exception ex)
                 {
-                    Factory.OnFrameworkErrorOccurred( ex.Message );
+                    Factory.OnFrameworkErrorOccurred(ex.Message);
                 }
             }
         }
 
-        private static CookieContainer ReadCookiesFromDisk( string file )
+        private static CookieContainer ReadCookiesFromDisk(string file)
         {
             try
             {
-                using( Stream stream = File.Open( file , FileMode.Open ) )
+                using (Stream stream = File.Open(file, FileMode.Open))
                 {
                     var formatter = new BinaryFormatter();
-                    return ( CookieContainer ) formatter.Deserialize( stream );
+                    return (CookieContainer)formatter.Deserialize(stream);
                 }
             }
-            catch( Exception ex )
+            catch (Exception ex)
             {
-                Factory.OnFrameworkErrorOccurred( ex.Message );
+                Factory.OnFrameworkErrorOccurred(ex.Message);
                 return new CookieContainer();
             }
         }
 
-        private void ReadReponse( HttpWebResponse response )
+        private void ReadReponse(HttpWebResponse response)
         {
             Stream respStream = response.GetResponseStream();
 
-            if( respStream == null )
+            if (respStream == null)
             {
-                this.OnWebErrorOccurred( this );
+                this.OnWebErrorOccurred(this);
                 return;
             }
 
-            this.Response = new StreamReader( respStream ).ReadToEnd();
-            this.OnWebResponseReceived( this );
+            this.Response = new StreamReader(respStream).ReadToEnd();
+            this.OnWebResponseReceived(this);
         }
 
-        private void OnResponseReceived( IAsyncResult iar , Action < HttpWebResponse > responseReaderAction )
+        private void OnResponseReceived(IAsyncResult iar, Action<HttpWebResponse> responseReaderAction)
         {
             try
             {
-                var response = ( HttpWebResponse ) ( ( HttpWebRequest ) iar.AsyncState ).EndGetResponse( iar );
-                responseReaderAction( response );
+                var response = (HttpWebResponse)((HttpWebRequest)iar.AsyncState).EndGetResponse(iar);
+                responseReaderAction(response);
             }
-            catch( WebException ex )
+            catch (WebException ex)
             {
                 this.Error = ex;
 
-                if( ex.Status == WebExceptionStatus.ProtocolError )
+                if (ex.Status == WebExceptionStatus.ProtocolError)
                 {
                     _cookieContainer = new CookieContainer();
-                    this.OnWebLoginRequired( this );
+                    this.OnWebLoginRequired(this);
                     return;
                 }
-                
-                this.OnWebErrorOccurred( this );
+
+                this.OnWebErrorOccurred(this);
             }
         }
 
-        private void EndAsyncRequest( IAsyncResult iar )
+        private void EndAsyncRequest(IAsyncResult iar)
         {
-            var action = ( Action ) iar.AsyncState;
-            action.EndInvoke( iar );
+            var action = (Action)iar.AsyncState;
+            action.EndInvoke(iar);
         }
 
-        private void DoWebRequest( HttpWebRequest request , Action < HttpWebResponse > responseAction )
+        private void DoWebRequest(HttpWebRequest request, Action<HttpWebResponse> responseAction)
         {
             try
             {
-                Action wrapperAction = () => request.BeginGetResponse( iar => this.OnResponseReceived( iar , responseAction ) , request );
-                wrapperAction.BeginInvoke( this.EndAsyncRequest , wrapperAction );
+                Action wrapperAction = () => request.BeginGetResponse(iar => this.OnResponseReceived(iar, responseAction), request);
+                wrapperAction.BeginInvoke(this.EndAsyncRequest, wrapperAction);
             }
-            catch( Exception ex )
+            catch (Exception ex)
             {
                 this.Error = ex;
-                this.OnWebErrorOccurred( this );
+                this.OnWebErrorOccurred(this);
             }
         }
     }
